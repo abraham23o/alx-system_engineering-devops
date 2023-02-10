@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo chmod 007 hello
+
