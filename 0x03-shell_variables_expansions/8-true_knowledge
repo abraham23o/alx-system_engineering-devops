@@ -1,0 +1,2 @@
+#!/bin/bash
+export TRUEKNOWLEDGE=echo $((100+28))
