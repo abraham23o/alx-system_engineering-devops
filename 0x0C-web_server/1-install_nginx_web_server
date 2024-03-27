@@ -3,10 +3,10 @@
 # port as 80 and creates a default html file that returns Hello World! when queried
 
 # Update package lists
-sudo apt update
+sudo apt-get update
 
 # Install nginx
-sudo apt install -y nginx
+sudo apt-get install -y nginx
 
 # Configure nginx to listen on port 80
 sudo sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
