@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Check if Nginx service is running
+nginx_status=$(systemctl is-active nginx)
+if [ "$nginx_status" != "active" ]; then
+    systemctl start nginx
+fi
+
+# Check if Nginx is listening on port 80
+nginx_port=$(netstat -tuln | grep ':80')
+if [ -z "$nginx_port" ]; then
+    nginx_config="/etc/nginx/sites-available/default"
+    if [ -f "$nginx_config" ]; then
+        # Add necessary configuration to listen on port 80
+        sudo sed -i 's/listen 80;/listen 80 default_server;/g' "$nginx_config"
+    else
+        exit 1
+    fi
+    # Restart Nginx service to apply changes
+    sudo systemctl restart nginx
+fi
