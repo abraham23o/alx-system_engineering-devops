@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# a Bash script that displays:
+# The content of the current directory
+# In a list format
+# Where only the part of the name after the first
+# dash is displayed (refer to the example)
+for file in *; do
+  # Check for hidden files and regular files
+  if [[ ! "$file" =~ ^\. && -f "$file" ]]; then
+    file_name=$(echo "$file" | cut -d"-" -f2-)
+    echo "$file_name"
+  fi    
+done
