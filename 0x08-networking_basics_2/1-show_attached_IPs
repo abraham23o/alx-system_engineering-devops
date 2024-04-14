@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A script to show all active IPv4 IPs of
+# the computer it's run
+ip addr | grep 'inet' |
