@@ -11,6 +11,7 @@ import requests
 
 def number_of_subscribers(subreddit):
     """Fetch reddit subs"""
+
     url = f'https://api.reddit.com/r/{subreddit}/about'
     # headers = {'User-Agent': 'api_advanced/0-subs (by u/adari'}
 
