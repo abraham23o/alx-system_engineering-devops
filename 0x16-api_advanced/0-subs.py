@@ -12,9 +12,9 @@ import requests
 def number_of_subscribers(subreddit):
     """Fetch reddit subs"""
     url = f'https://api.reddit.com/r/{subreddit}/about'
-    headers = {'User-Agent': 'api_advanced/0-subs (by u/adari'}
+    # headers = {'User-Agent': 'api_advanced/0-subs (by u/adari'}
 
-    response = requests.get(url, headers=headers)
+    response = requests.get(url)
     if response.status_code == 200:
         data = response.json() or {}
         return data.get('data', {}).get('subscribers', 0)
